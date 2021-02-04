@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  background-color: #444059;
+  font-family: "Luckiest Guy", cursive;
+  color: #eee;
+}
+
+h1 {
+  text-align: center;
+  font-size: 8vw;
+}
+
+h2 {
+  text-align: center;
+}
+
+#gamefield {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+#player1 {
+  --rot: 1;
+}
+
+#player2 {
+  --rot: -1;
+}
+
+.player {
+  transform: scale(var(--rot), 1);
+  width: 40vw;
+  height: 40vw;
+  background-size: 100%;
+}
+
+.player.rock {
+  background-image: url(assets/rock.png);
+}
+
+.player.paper {
+  background-image: url(assets/paper.png);
+}
+
+.player.scissors {
+  background-image: url(assets/scissors.png);
+}
+
+.player.shake {
+  background-image: url(assets/rock.png);
+  transform-origin: left center;
+  animation: shake 1.8s ease-in 1 forwards;
+}
+
+@keyframes shakeComputer {
+  0% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+  15% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+  25% {
+    transform: rotateY(180deg) translateY(0);
+  }
+  50% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+  65% {
+    transform: rotateY(180deg) translateY(0);
+  }
+  75% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+
+  85% {
+    transform: rotateY(180deg) translateY(0);
+  }
+
+  100% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+}
+
+@keyframes shakePlayer {
+  0% {
+    transform: translateY(0px);
+  }
+  15% {
+    transform: translateY(-50px);
+  }
+  25% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  65% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-50px);
+  }
+
+  85% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+#texts {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+}
+
+#texts h1 {
+  color: #ffde53;
+  text-shadow: 4px 4px 1px red, -4px -4px 1px red, 4px -4px 1px red, -4px 4px 1px red;
+}
+
+.hidden {
+  display: none;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-around;
+  max-width: 50vw;
+}
+
+#buttons.disabled button {
+  filter: grayscale(100%) brightness(0.75);
+}
+
+#buttons button {
+  background-size: 100%;
+  border-radius: 10vw;
+  width: 10vw;
+  height: 10vw;
+  transition: filter 0.8s;
+  color: transparent;
+}
+
+button.rock {
+  background-image: url(assets/button_rock.png);
+}
+
+button.paper {
+  background-image: url(assets/button_paper.png);
+}
+
+button.scissors {
+  background-image: url(assets/button_scissors.png);
+}
